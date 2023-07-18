@@ -1,0 +1,39 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "compare_features_memory",
+            "type": "python",
+            "request": "launch",
+            "program": "compare_features_memory.py",
+            "args": [
+                "--img_dir", "test"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "compare_features_memory_v2",
+            "type": "python",
+            "request": "launch",
+            "program": "compare_features_memory_v2.py",
+            "args": [
+                "--img_dir", "test"
+            ],
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "test_images",
+            "type": "python",
+            "request": "launch",
+            "program": "compare_pp_fp.py",
+            "args": [
+                "--gallery_dir", "features",
+                "--feature_dir", "test"
+            ],
+            "console": "integratedTerminal"
+        }
+    ]
+}
