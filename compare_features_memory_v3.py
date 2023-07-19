@@ -64,6 +64,7 @@ def main():
     img_names, features = save_features(path_dir)
     
     duplicate = []
+    dup_triple_name = []
     task_count = 0
     
     for i in range(len(features) - 1):
@@ -81,7 +82,11 @@ def main():
             score = 100 - float(distance * 100)
             
             if score >= 85 :
+                match_count += 1
                 duplicate.append([img_names[i], img_names[j], score])
+        
+        if match_count >=2:
+            dup_triple_name.append([img_names[i]])
             
         end_time = datetime.datetime.now()
         duration = (end_time - start_time).total_seconds()
@@ -93,6 +98,11 @@ def main():
         for i in range(len(duplicate)):
             file.write(str(duplicate[i][0]) +  "    =====>    " + str(duplicate[i][1]) + "          score: " + str(duplicate[i][2]) + "\n")
         file.close()
+    with open('duplicate_triple_images.txt', 'a') as file:
+        for i in range(len(dup_triple_name)):
+            file.write(str(dup_triple_name[i]) + "\n")
+        file.close()
+        
             
     print("complete!")
     
